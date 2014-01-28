@@ -162,4 +162,24 @@ MyApp.addRegions({
 
 ###Get Region By Name
 
-regionは、`getRegion`メソッド
+regionは、`getRegion`メソッドを用いてnameによりgetterとして振る舞う。
+
+```javascript
+var app = new Marionette.Application();
+app.addRegions({ r1: "#region1" });
+
+// r1 === r1Again; true
+var r1 = app.getRegion("r1");
+var r1Again = app.r1;
+```
+
+###Removing Regions
+
+RegionsはRegionの名前をvalueとして取り、`removeRegion`メソッドによって削除されうる。
+
+```javascript
+MyApp.removeRegion('someRegion');
+```
+
+Regionを削除することが、正しく、アプリケーションオブジェクトから削除する前に閉じることが出来る。(?)
+詳細はRegionのdocsで。
